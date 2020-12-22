@@ -1,16 +1,35 @@
-//백준 2609
+var fs = require('fs');
+var input = fs.readFileSync('/dev/stdin').toString().split(' ');
+const first = parseInt(input[0]);
+const second = parseInt(input[1]);
 
-const input = require('fs').readFileSync('/dev/stdin').toString().split(' ');
+let GCD;
+let LCM = 1;
 
-const fisrtMethod = (A, B, C) => ((A+B)%C);
-const secondMethod = (A, B, C) => (((A%C) + (B%C))%C)
-const thirdMethod = (A, B, C) => (A*B)%C
-const fourthMethod = (A, B, C) => (((A%C)* (B%C))%C)
-
-const methods = [ fisrtMethod, secondMethod, thirdMethod, fourthMethod ]
-
-for(let i = 0; i < 4; i++ ){
-    let method = methods[i]
-    let result = method(parseInt(input[0]), parseInt(input[1]), parseInt(input[2]))
-    console.log(result)
+/* 두 수의 약수 구하기 */
+function Divide(num){
+    let divisors =[]
+    for(let i= 1; i <= num ; i++){
+        if( num % i === 0){
+            divisors.push(i)
+        }
+    }
+    return divisors
 }
+
+let firstDividers= Divide(first)
+let secondDividers= Divide(second)
+
+/* 공약수 */
+let commonDivisors = firstDividers.filter(x => secondDividers.includes(x)); // 결과 2, 3
+
+
+GCD = commonDivisors.slice(-1)[0]
+
+/* 최소공배수 */
+// 중복 제거하기
+LCM = GCD * (first/GCD) * (second/GCD)
+
+console.log(GCD);
+console.log(LCM);
+
