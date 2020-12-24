@@ -1,5 +1,4 @@
 // 프로그래머스 완전 탐색
-
 function solution(numbers) {
     console.clear();
     
@@ -12,7 +11,6 @@ function solution(numbers) {
         const rest = [...origin.slice(0, index), ...origin.slice(index + 1)]; 
         const permutations = getPermutations(rest, selectNumber - 1); 
         const attached = permutations.map((permutation) => [fixed, ...permutation]); 
-     
         results.push(...attached); 
       });
       return results; // 결과 담긴 results return
