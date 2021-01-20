@@ -19,7 +19,7 @@ function solution(record) {
   temp.forEach((arr) => {
     arr[0] = userdata.get(arr[0]);
     let str = arr.join('');
-    realresult.push(str);
+    result.push(str);
   });
 
   return result;
