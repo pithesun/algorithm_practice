@@ -1,3 +1,4 @@
+//{{2},{2,1},{2,1,3}{22,1,3,4}}
 function solution(s) {
   let processed = s.match(/\{(\d|\d\,)+\}/g);
   let newArr = [];
