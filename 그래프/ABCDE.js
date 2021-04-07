@@ -1,12 +1,20 @@
-// let input = "8 8\n\
-// 1 7 \n\
-// 3 7\n\
-// 4 7\n\
-// 3 4\n\
-// 4 6\n\
-// 3 5\n\
-// 0 4\n\
-// 2 7".split("\n");
+let input = "8 8\n\
+1 7 \n\
+3 7\n\
+4 7\n\
+3 4\n\
+4 6\n\
+3 5\n\
+0 4\n\
+2 7".split("\n");
+
+// let input2 = "h g f w r\n\
+// 4\n\
+// h g\n\
+// h f\n\
+// g r\n\
+// g w\n\
+// "
 
 // "5 4\n\
 // 0 1\n\
@@ -40,7 +48,7 @@
 // 2 7".split("\n");
 
 var fs = require("fs");
-var input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+// var input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 let [n, m] = input.shift().trim().split(" ");
 class Node {
@@ -55,6 +63,7 @@ class Node {
 
 function makeGraph() {
   let graph = new Array(parseInt(n)).fill().map((a, i) => new Node(i));
+  
   input.forEach((input) => {
     let [a, b] = input.trim().split(" ");
     // console.log(parseInt(a), parseInt(b));
@@ -69,8 +78,8 @@ function checkABCDE(n, m) {
   for (let i = 0; i < n; i++) {
     let newgraph = makeGraph();
     dfs(newgraph, i, 0);
-    // console.log(i, newgraph);
-    if (isABCDE) return 1;
+    console.log(i, newgraph);
+    // if (isABCDE) return 1;
   }
   return 0;
 }
