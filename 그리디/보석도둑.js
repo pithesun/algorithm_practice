@@ -1,10 +1,22 @@
-let input = "4 2\n\
-1 65\n\
-1 35\n\
-5 23\n\
-2 99\n\
+let input = "4 4\n\
+1 100\n\
+2 200\n\
+13 300\n\
+10 500\n\
 10\n\
-2".split("\n");
+10\n\
+10\n\
+14".split(
+  "\n"
+);
+
+// "4 2\n\
+// 1 65\n\
+// 1 35\n\
+// 5 23\n\
+// 2 99\n\
+// 10\n\
+// 2".split("\n");
 
 let [N, K] = input
   .shift()
@@ -101,11 +113,14 @@ function removeRoot() {
   return root;
 }
 
-let answer = 0;
+let answer = new Number(0);
 let prev = 0;
 pack.forEach((c) => {
   for (let i = prev; i < jewerly.length; i++) {
     let [m, v] = jewerly[i];
+    m = Number(m);
+    v = Number(v);
+
     if (m <= c) {
       add(v);
     } else {
@@ -115,7 +130,7 @@ pack.forEach((c) => {
   }
   let root = removeRoot();
   if (root > 0) {
-    answer += root;
+    answer += Number(root);
   }
 });
 
